@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Booking Website</title>
+    <style>
+      #start_point,#end_point,#pickUpDate{
+        height: 30px;
+        width: 230px;
+        padding: 0 13px 0 13px;
+        margin: 10px;
+        border-radius: 10px;
+      }
+      #book{
+        height: 30px;
+        width: 230px;
+        border-radius: 10px;
+      }
+      #a{
+        border-style: solid;
+        border-width: 2px;
+        width: 750px;
+        height: 220px;
+        margin: auto;
+        padding: 15px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYBLQtOqPXWnn4smq-CnTeM3Up6xp
+    3Zwc&libraries=places&callback=initMap"
+      defer></script>
+     <script type="text/javascript" src="main.js" ></script> 
+     <script type="text/javascript" src="jspdf.min.js"></script>  
+  </head>
+  <body>
+      Starting Point:
+      <input type="text" class="input" id="start_point" placeholder="Starting Point" onchange="checkInputs()" required><br>
+      Ending Point:
+      <input type="text" class="input" id="end_point" placeholder="Ending Point" onchange="checkInputs()" required><br>
+      PickUp Date:
+      <input type="date" class="input" id="pickUpDate"  onchange="checkInputs()" required><br>
+      Mode Of Travel:
+      <input type="radio" id="bus" class="radio_input" name="mode" value="Bus" onchange="checkInputs()">Bus<br><br>
+      <input type="radio" id="car" class="radio_input" name="mode" value="Car" onchange="checkInputs()">Car<br><br>
+      <input type="radio" id="train" class="radio_input" name="mode" value="Train" onchange="checkInputs()">Train<br><br>
+      <button id="book" onclick="calculateDistance();" disabled >Book Now</button>
+      <br>
+      <br>
+    <br>
+    <div id="a" style="display: none;">
+    <div id="b" style="text-align:left;">
+      <h3 style="text-align: center;">Booking details</h3><br>
+      Booking time :<span id="time"></span><br>
+      Travel Date :<span id="bookedDate"></span><br>
+      Starting Point :<span id="startingPoint"></span><br>
+      Destination Point :<span id="endPoint"></span><br>
+      Mode Of Travel :<span id="mode"></span><br>
+      Distance: <span id="output" ></span><br>
+      Total Cost:Rs.<span id="cost" ></span><br>
+    </div>
+    <a href="javascript:genPDF()" style="float:right;font-size: 10px;">Print</a>
+  </div>
+</body>
+</html>
